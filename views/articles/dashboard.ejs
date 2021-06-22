@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>dashbaord</title>
+</head>
+<body> 
+    
+        <div class="banner">
+           
+            <%- include("_header") %> 
+            <div class="content">
+                <h1>THE NOTEBOK</h1>
+                <p>
+                    The stories are both fictional and based on real life events.
+                </p>
+                <div class="btn-homepage">
+                    <button onclick="location.href='http:#about'" type="button"><span></span>About</button>
+                    <button onclick="location.href='http:#stories'" type="button"><span></span>Stories</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-page" id="about">
+            <div class="container">
+                <div class="title">
+                    <h1>ABOUT</h1>
+                </div>
+                <div class="text">
+                    <p>I'm an aspiring writer. what inspires my stories are 
+                        real life events with a mixture of current challenges in our society. 
+                    </p>
+                    <p>The stories are both fictional and based on real life events. 
+                        I hope you enjoy them.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="article background-color" id="stories">
+            <div class="container title">
+                <h1 class="mb-4" id="stories_title"> STORIES</h1>
+                <% articles.forEach(article => { %> 
+                    <div class="card mt-4 card-box ">
+                        <div class="card-body ">
+                            <h4 class="card-title"><%= article.title %></h4>
+                            <div class="card-subtitle mb-2">
+                                <%= article.createdAT.toLocaleDateString() %> 
+                            </div>
+                            <div class="card-text mb-2">
+                                By <%= article.description %> 
+                            </div>
+                            <div class="btnDiv">
+                                <a href="articles/<%= article.slug %>" class="btn" id="redMore">Read More</a> 
+                            </div>                             
+                        </div>
+                    </div> 
+                <% }) %> 
+            </div>
+        </div>
+
+        <%- include("_footer") %> 
+
+</body>
+
+    
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+    function doComment(form) {
+        $.ajax({
+            url: "/do-comment",
+            method: "POST",
+            data: {name: form.name.value, comment: form.comment.value, post_id: form.post_id.value},
+            success: function(response) {
+                alert(response);
+            }
+        });
+        return false;
+    }
+</script>
+
+
+
+
+
+
+<script>
+    var dteNow = new Date();
+    var intYear = dteNow.getFullYear();
+    
+    $('#copyright').each(function() {
+        var text = $(this).text();
+        $(this).text(text.replace('CurrentCopyrightYear', intYear)); 
+    });
+</script>
+
+<script>
+// Select all links with hashes
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 100, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
+
+

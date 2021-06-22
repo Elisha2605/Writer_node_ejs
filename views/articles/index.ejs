@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   
+    <title>Writers</title>
+</head>
+<body>
+
+    <%- include("_header") %> 
+    
+    <div class="container">
+        <div class="title">
+            <h1 class="mb-4" id="blog"> My notebook </h1>
+        </div>
+        <!-- <a href="/articles/new" class="btn btn-success"> New Articles</a> -->
+
+        <% articles.forEach(article => { %> 
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title"><%= article.title %></h4>
+                    <div class="card-subtitle text-muted mb-2">
+                        <%= article.createdAT.toLocaleDateString() %> 
+                    </div>
+                    <div class="card-text mb-2">
+                        <%= article.description %> 
+                    </div>
+                    <a href="articles/<%= article.slug %>" class="btn btn-primary read-btn">Show</a>
+                    <a href="articles/edit/<%= article.id %>" class="btn btn-info edit-btn">Edit</a>
+                    <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+                        <button type="submit" class="delete-btn btn" id="delete">Delete</button>
+                    </form>
+                </div>
+            </div> 
+        <% }) %>
+    </div>
+
+    <%- include("_footer") %> 
+</body>
+</html>

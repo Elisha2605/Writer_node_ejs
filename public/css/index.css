@@ -1,0 +1,53 @@
+body {
+    background: rgb(224, 224, 224) !important;
+}
+.logo {
+    filter: none;
+}
+.navbar ul li a{
+    color: black;
+}
+#home {
+   filter: none;
+}
+.container .card{
+    width: 70%;
+    /* display: flex !important;
+    align-content: center; */
+    margin: 30px;
+    height: 200px; 
+    border-radius: 25px; 
+    /* background: #000000; */
+    background: url(/img/About18.jpg) no-repeat center center fixed ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+     background-size: cover;
+     margin: auto;
+     border: 2px solid #e2f770;
+     text-align: center;
+     margin-bottom: 30px;
+}
+.card-title {
+    color: black !important;
+}
+
+.card-text {
+    color: rgb(66, 66, 66);
+}
+.read-btn {
+    background: rgb(2, 124, 18) !important;
+}
+.edit-btn {
+
+}
+.delete-btn {
+    background: red !important;
+}
+#delete {
+    color: white;
+}
+
+/* footer #logo {
+    filter: invert();
+} */

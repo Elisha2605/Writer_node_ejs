@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=KoHo:wght@200;500&display=swap');
+
+
+h1 {
+    font-family: 'KoHo', sans-serif;
+    font-weight: 500;
+}
+p {
+    font-family: 'KoHo', sans-serif;
+    font-size: 20px;
+}
+
+.logo {
+    width: 90px;
+    filter: invert() !important;
+    cursor: pointer;
+}
+#home {
+    width: 35px;
+    filter: invert() !important;
+    margin-bottom: 10px;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: #fff !important;
+    text-transform: uppercase;
+}
+
+.comment {
+    display: flex;
+}
+
+
+#logout{
+    display: none;
+}
+#create {
+    display: none;
+}

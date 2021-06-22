@@ -1,0 +1,18 @@
+body {
+    background: rgb(224, 224, 224) !important;
+}
+.logo {
+    filter: none !important;
+}
+.navbar ul li a{
+    color: black !important;
+}
+#home {
+   filter: none !important;
+}
+
+#form {
+    border: none !important;
+    outline: none !important;
+    background: none !important;
+}
