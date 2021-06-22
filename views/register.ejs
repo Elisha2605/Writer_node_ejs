@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="/">
     <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <title>register</title>
 </head>
@@ -13,7 +16,8 @@
 
     
 
-    <div class="container">
+        <%- include("articles/_header") %>
+        <div class="container">
         <div class="register-box">
             <h1>Register</h1>
             <%- include('partials/messages'); %>    
@@ -31,14 +35,14 @@
                     <input type="password" id="password" name="password" required value="<%= typeof password != 'undefined' ? password : '' %>">
                 </div>
                 <div class="textbox">
-                    <label for="password2">Password2</label>
+                    <label for="password2">Confirm Password</label>
                     <input type="password" id="password"2 name="password2" required value="<%= typeof password2 != 'undefined' ? password2 : '' %>">
                 </div>
                 <button type="submit">Register</button>
-                <a href="/users/login">Login</a>
             </form>
         </div>
     </div>
    
+    <%- include("articles/_footer") %>
 </body>
 </html>

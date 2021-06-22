@@ -8,6 +8,15 @@ html, body{
 #logout {
     display: none;
 }
+#login {
+    display: none;
+}
+#create {
+    display: none;
+}
+#register {
+    color: #009688 !important;
+}
 
 
 .login-box {
