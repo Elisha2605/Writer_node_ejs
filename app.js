@@ -13,7 +13,7 @@ const dotenv = require('dotenv');
 
 
 const app = express();
-const PORT = 8080;
+
 
 dotenv.config({ path: './config.env' });
 
@@ -82,9 +82,11 @@ app.use("/index", indexRouter)
 app.use("/users", usersRouter)
 app.use("/articles", articlesRouter);
 
-app.listen(PORT, (error) => {
+const port = process.env.PORT || 8080;
+
+app.listen(port, (error) => {
     if (error) {
         console.log(error)
     }
-    console.log("Server running on port", PORT);
-})
+    console.log("Server running on port", port);
+});
